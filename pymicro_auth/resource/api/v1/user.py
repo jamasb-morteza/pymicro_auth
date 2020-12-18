@@ -9,7 +9,7 @@ class UserResource(Resource):
         :returns user singleton / users collection
         """
         if user_id is None:
-            return UserController.get_users()
+            return get_users()
 
         return UserController.get_user(int(user_id))
 

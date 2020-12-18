@@ -1,1 +1,1 @@
-from pymicro_auth.model.user import Users
+from pymicro_auth.model.user import User
