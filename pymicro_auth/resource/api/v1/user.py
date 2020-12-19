@@ -1,5 +1,5 @@
 from flask_restx import Resource
-from pymicro_auth.controller import UserController
+from pymicro_auth.controller.api.v1 import UserController
 
 class UserResource(Resource):
 
@@ -9,7 +9,7 @@ class UserResource(Resource):
         :returns user singleton / users collection
         """
         if user_id is None:
-            return get_users()
+            return UserController.get_users()
 
         return UserController.get_user(int(user_id))
 

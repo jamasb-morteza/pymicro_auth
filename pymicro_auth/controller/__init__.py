@@ -1,1 +1,1 @@
-from pymicro_auth.controller.user import UserController
+from pymicro_auth.controller import api

@@ -1,0 +1,1 @@
+from pymicro_auth.schema.api.v1.user import UserSchema

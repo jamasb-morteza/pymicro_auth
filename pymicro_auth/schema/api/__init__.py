@@ -1,0 +1,1 @@
+from pymicro_auth.schema.api import v1
