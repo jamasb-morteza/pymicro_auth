@@ -4,7 +4,7 @@ from pymicro_auth.model import User
 
 class UserSchema(marshmallow.SQLAlchemySchema):
     class Meta:
-        model: User
+        model = User
 
     id = marshmallow.auto_field(dump_only=True)
     username = marshmallow.auto_field()
