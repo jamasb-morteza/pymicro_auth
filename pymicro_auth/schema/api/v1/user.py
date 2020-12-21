@@ -8,4 +8,4 @@ class UserSchema(marshmallow.SQLAlchemySchema):
 
     id = marshmallow.auto_field(dump_only=True)
     username = marshmallow.auto_field()
-    password = marshmallow.auto_field()
+    password = marshmallow.auto_field(load_only=True)
