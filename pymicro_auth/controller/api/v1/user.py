@@ -13,7 +13,7 @@ class UserController:
     @staticmethod
     def get_users():
         users = User.query.all()
-        return {"error": "No Users Found"}
+        return {"users": users}
         # if users is None:
         #     return {"error": "No Users Found"}
         # user_schema = UserSchema(many=True)
@@ -22,8 +22,10 @@ class UserController:
     @staticmethod
     def get_user(user_id):
         user = User.query.get(user_id)
-        # if user is None:
-        #     abort(HTTPStatus.NOT_FOUND, "User Not Found")
+        if user is None:
+            abort(HTTPStatus.NOT_FOUND, "User Not Found")
+
+        return {"user":user}
         #
         # user_schema = UserSchema()
         #
@@ -48,7 +50,6 @@ class UserController:
             db.session.commit()
         except Exception:
             db.session.rollback()
-            return "Errorrrrr"
             return abort(HTTPStatus.INTERNAL_SERVER_ERROR, "Somthing Went Wrong Please Try Again Later")
         else:
             return user
