@@ -25,7 +25,7 @@ class UserController:
         if user is None:
             abort(HTTPStatus.NOT_FOUND, "User Not Found")
 
-        return {"user":user}
+        return {"user": user}
         #
         # user_schema = UserSchema()
         #

@@ -161,7 +161,9 @@ running migration
 flask db upgrade
 ```
 
-marshmallow:
+marshmallow: Serializing Python Object to JSON and vice versa
+
+marshmallow-sqlalchemy: Serializing sql object to json
 
 ```python
 from flask_marshmallow import Marshmallow
