@@ -14,6 +14,7 @@ class UserResource(Resource):
         return UserController.get_user(int(user_id))
 
     def post(self):
+        return UserController.create_user()
         pass
 
     def patch(self):
