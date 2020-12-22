@@ -6,8 +6,8 @@ from pymicro_auth.controller.api.v1 import AuthController
 class AuthResource(Resource):
     @staticmethod
     def get():
-        AuthController.verify_token()
+        return AuthController.verify_token()
 
     @staticmethod
-    def post(self):
-        AuthController.generate_token()
+    def post():
+        return AuthController.generate_token()
