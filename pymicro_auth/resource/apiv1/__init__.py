@@ -1,5 +1,5 @@
-from pymicro_auth.resource.api.v1.user import UserResource
-from pymicro_auth.resource.api.v1.auth import AuthResource
+from pymicro_auth.resource.apiv1.user import UserResource
+from pymicro_auth.resource.apiv1.auth import AuthResource
 from pymicro_auth import api_v1 as api
 
 api.add_resource(

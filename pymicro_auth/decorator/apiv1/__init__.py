@@ -1,0 +1,1 @@
+from pymicro_auth.decorator.apiv1.auth import auth_required

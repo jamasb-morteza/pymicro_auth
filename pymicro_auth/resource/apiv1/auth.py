@@ -1,13 +1,11 @@
 from flask_restx import Resource
 
-from pymicro_auth.controller.api.v1 import AuthController
+from pymicro_auth.controller.apiv1 import AuthController
 
 
 class AuthResource(Resource):
-    @staticmethod
-    def get():
+    def get(self):
         return AuthController.verify_token()
 
-    @staticmethod
-    def post():
+    def post(self):
         return AuthController.generate_token()

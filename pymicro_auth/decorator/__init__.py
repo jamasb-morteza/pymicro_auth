@@ -1,0 +1,1 @@
+from pymicro_auth.decorator import apiv1

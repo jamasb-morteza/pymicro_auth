@@ -5,11 +5,13 @@ from pymicro_auth.model import User
 from pymicro_auth import db
 
 from pymicro_auth.schema.api.v1 import UserSchema
-
+from pymicro_auth.decorator.apiv1.auth import auth_required
 
 class UserController:
 
+
     @staticmethod
+    @auth_required
     def get_users():
         users = User.query.all()
         if users is None:
@@ -19,6 +21,7 @@ class UserController:
         return user_schema.dump(users)
 
     @staticmethod
+    @auth_required
     def get_user(user_id):
         user = User.query.get(user_id)
         if user is None:
@@ -28,6 +31,7 @@ class UserController:
 
     @staticmethod
     def create_user():
+
         user_schema = UserSchema()
         data = user_schema.load(request.get_json())
         # data = request.get_json()

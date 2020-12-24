@@ -1,1 +1,1 @@
-from pymicro_auth.resource import api
+from pymicro_auth.resource import apiv1

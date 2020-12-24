@@ -1,5 +1,5 @@
 from flask_restx import Resource
-from pymicro_auth.controller.api.v1 import UserController
+from pymicro_auth.controller.apiv1 import UserController
 
 class UserResource(Resource):
 

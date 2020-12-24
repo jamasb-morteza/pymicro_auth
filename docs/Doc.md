@@ -50,23 +50,23 @@ class Config:
 #### Adding Resource Endpoint To API:
 
 ```python
-from pymicro_auth.resource.api.v1.user import UserResource
+from pymicro_auth.resource.api.user import UserResource
 from pymicro_auth import api_v1 as api
 
 # Collection Resource
 api.add_resource(
-    UserResource,
-    "/users",
-    methods=['GET', 'POST'],
-    endpoint='users'
+  UserResource,
+  "/users",
+  methods=['GET', 'POST'],
+  endpoint='users'
 )
 
 # Singleton Resource
 api.add_resource(
-    UserResource,
-    '/users/<user_id>',
-    methods=['GET', 'PATCH', 'DELETE'],
-    endpoint='user'
+  UserResource,
+  '/users/<user_id>',
+  methods=['GET', 'PATCH', 'DELETE'],
+  endpoint='user'
 )
 ```
 
@@ -112,8 +112,18 @@ class User(db.Model):
 
 #### Docker Running Mysql Container:
 
+-d:run as  Daemon
+
+--rm: remove if container exist or when daemon exists
+
+--name: Name the container
+
+-p: binding hostport to container port <host-port>:<contaiber-port>
+
+-e: set Environment Variable for container
+
 ```bash
- docker run -d --rm --name mysql_pymicro_auth -p 3306:3306
+ docker run -d --rm --name mysql-pymicro-auth -p 3306:3306
  -e MYSQL_ROOT_PASSWORD=123456
  -e MYSQL_DATABASE=pymicro_auth 
  -e MYSQL_USER=pymicro 
@@ -121,35 +131,41 @@ class User(db.Model):
  mysql
 ```
 
+list the running containers
+
 ```bash
 docker container ls
 ```
+
+inspect <container> or <image>
 
 ```bash
 docker inspect mysql_pymicro_auth
 ```
 
+Executing MySQL with <pymicro> user in <mysql-pymicro-auth> container
+
 ```bash
-docker exec -it mysql_pymicro_auth mysql -u pymicro -p
+docker exec -it mysql-pymicro-auth mysql -u pymicro -p
 ```
 
 
 
 Export Connection String to environment variables For SQLALCHEMY_DATABASE_URI variable:
 
-linux:
+in Linux:
 
 ```bash
 export PYMICRO_AUTH_SQL_URI=mysql+pymysql://<username>:<password>@<host>:<port>/<dbname>
 ```
 
-windows:
+in windows:
 
 ```bash
 SET PYMICRO_AUTH_SQL_URI=mysql+pymysql://<username>:<password>@<host>:<port>/<dbname>
 ```
 
-flask creating migration:
+Flask creating migration:
 
 ```bash
 flask db migrate -m"migration_name"
