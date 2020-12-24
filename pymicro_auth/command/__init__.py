@@ -1,0 +1,1 @@
+from pymicro_auth.command import app

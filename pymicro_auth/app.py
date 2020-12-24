@@ -13,6 +13,7 @@ api_v1_bp = Blueprint("api_v1", __name__, url_prefix="/api/v1")
 api_v1 = Api(api_v1_bp)
 
 app_cli = AppGroup("app", help="commands")  # point to pymmycro_auth/command/app
+from pymicro_auth import command
 from pymicro_auth import resource
 
 
