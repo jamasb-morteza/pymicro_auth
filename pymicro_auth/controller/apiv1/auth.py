@@ -10,6 +10,7 @@ from pymicro_auth.schema.api.v1 import UserSchema
 from jwt import encode, decode
 from jwt.exceptions import ExpiredSignatureError
 
+
 class AuthController:
 
     @staticmethod
@@ -26,14 +27,14 @@ class AuthController:
         if user is None:
             abort(HTTPStatus.NOT_FOUND, "User Or Password Wrong")
 
-        if user['password'] != data['password']:
+        if user.password != data['password']:
             abort(HTTPStatus.NOT_FOUND, "User Or Password Wrong")
 
         current_time = time()
         jwt_token = encode(
             {
                 'username': user.username,
-                'user_id': user.user_id,
+                'user_id': user.id,
                 'iss': 'pymicro_auth',  # Issuer
                 'iat': current_time,  # Issued At
                 'nbf': current_time,  # Not Before

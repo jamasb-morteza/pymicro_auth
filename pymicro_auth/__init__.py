@@ -6,13 +6,18 @@ from flask_migrate import Migrate
 from flask_marshmallow import Marshmallow
 from flask.cli import AppGroup
 
+# from pymicro_auth.command import app
+
+
 db = SQLAlchemy()
 marshmallow = Marshmallow()
 migrate = Migrate()
 api_v1_bp = Blueprint("api_v1", __name__, url_prefix="/api/v1")
 api_v1 = Api(api_v1_bp)
 
-app_cli = AppGroup("app", help="commands")  # point to pymmycro_auth/command/app
+app_cli = AppGroup("app", help="app commands")  # point to pymmycro_auth/command/app
+
+# from pymicro_auth import command
 from pymicro_auth import resource
 
 
